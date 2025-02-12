@@ -1,6 +1,20 @@
-*{
+*, html{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
-  }
+  font-family: Sans-Serif;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+:root{
+  --secondary-color: #F8BBD0;
+  --text-color: #F44D41;
+  --white: #fff;
+}
+body{
+  min-height: 100vh;
+}
   article .tableList{
   width: 100%;
   display: flex;
