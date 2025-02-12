@@ -7,11 +7,6 @@
   text-decoration: none;
   scroll-behavior: smooth;
 }
-:root{
-  --secondary-color: #F8BBD0;
-  --text-color: #F44D41;
-  --white: #fff;
-}
 body{
   min-height: 100vh;
 }
