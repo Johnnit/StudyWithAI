@@ -1,0 +1,233 @@
+*, html{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Sans-Serif;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+:root{
+  --secondary-color: #F8BBD0;
+  --text-color: #F44D41;
+  --white: #fff;
+}
+body{
+  min-height: 100vh;
+  }
+  article .tableList{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+align-items: center;
+padding: 5vw;
+}
+
+/* chatAI */
+section.chat{
+  z-index: 500;
+}
+.chat .top{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: whitesmoke;
+  z-index: 3;
+  padding: 10px;
+}
+.chat :where(.top .left, .top){
+  display: flex;
+  align-items: center;
+}
+.chat .top h2{
+  margin: 0 auto;
+}
+.chat .top .left span{
+  font-size: 25px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 50%;
+}
+.chat .top .left span:hover{
+  background: rgba(0,0,0,0.1);
+}
+.chat .top .left img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.inputArea {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  padding: 10px;
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputArea form{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.inputArea form input{
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 19px;
+}
+.inputArea form input:valid ~ .actionBtns button.send{
+  display: block;
+}
+.inputArea form .actionBtns{
+  display: flex;
+  align-items:center;
+  gap: 10px;
+}
+.inputArea form button.send{
+  display: none;
+  background: green;
+}
+.inputArea form :where(input, .actionBtns button){
+  border: none;
+  outline: none;
+}
+.inputArea form .actionBtns button.send{
+  width: 45px;
+  height: 45px;
+  padding: 10px 10px;
+  border-radius: 50%;
+  background: green;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+.messageArea{
+  margin: 20px 20px 120px 20px;
+  
+}
+.messageArea .message{
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+}
+.messageArea .bot-msg img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.messageArea .bot-msg.loading img{
+  animation: rotate 2s ease infinite;
+}
+@keyframes rotate{
+  100%{
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+.messageArea .message .message-text{
+  padding: 7px 16px;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+.messageArea .user-msg{
+  flex-direction: column;
+  align-items: flex-end;
+}
+.messageArea .user-msg .message-text{
+  padding: 12px 16px;
+  max-width: 85%;
+  border-radius: 13px 13px 3px 13px;
+  background: rgba(0,0,0,0.2);
+}
+.messageArea .user-msg .img-attachment{
+  width: 50%;
+  border-radius: 13px 3px 13px 13px;
+}
+.messageArea .user-msg .file-attachment{
+  display: flex;
+  gap:6px;
+  align-items: center;
+  padding:10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 13px 3px 13px 13px;
+  background: ;
+}
+.messageArea .user-msg .file-attachment{
+  color: #1d7efd;
+}
+.messageArea .bot-msg .message-text{
+  padding: 12px 16px;
+  max-width: 75%;
+  border-radius: 3px 13px 13px 13px;
+  background: rgba(0,0,0,0.3);
+  
+}
+/* File upload */
+.fileWrap{
+  display: flex;
+  
+}
+.fileWrap input.fileInput{
+  display: hidden;
+  visibility: hidden;
+}
+
+.actionBtns .fileWrap img{
+  width: 45px;
+  height: 45px;
+}
+.actionBtns .fileWrap .file,
+.actionBtns .fileWrap.active.image-attached img,
+.actionBtns .fileWrap.active.file-attached .file-icon,
+.actionBtns .fileWrap.active:hover .close{
+  display: block;
+}
+.actionBtns .fileWrap.active button.file,
+.actionBtns .fileWrap.active button.file-icon
+{
+  display: none;
+}
+.actionBtns :where(.fileWrap, .fileWrap button){
+  background: whitesmoke;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  align-self: center;
+  font-weight: 500;
+  object-fit: cover;
+  
+}
+.prompt-form :where(.fileWrap, button, img){
+  position: relative;
+}
+.fileWrap :where(button, img){
+  position: absolute;
+  top:0;
+  left: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid blue;
+}
+.actionBtns .fileWrap button.file{
+  color: grey;
+}
+.actionBtns .fileWrap button.close{
+  color: red;
+  display: none;
+}
+.actionBtns .fileWrap.active button.file-icon{
+  color:#1d7efd;
+}
